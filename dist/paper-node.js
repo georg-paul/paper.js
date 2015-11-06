@@ -10842,7 +10842,7 @@ function XMLSerializer() {
 }
 
 XMLSerializer.prototype.serializeToString = function(node) {
-	var text = domToHtml(node);
+	var text = jsdom.serializeDocument(node);
 	var tagNames = ['linearGradient', 'radialGradient', 'clipPath'];
 	for (var i = 0, l = tagNames.length; i < l; i++) {
 		var tagName = tagNames[i];
