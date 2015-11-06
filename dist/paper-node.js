@@ -7002,6 +7002,8 @@ var PathItem = Item.extend({
 			case 'm':
 			case 'l':
 				var move = lower === 'm';
+				if (move && previous && previous !== 'z')
+					this.closePath(true);
 				for (var j = 0; j < length; j += 2)
 					this[j === 0 && move ? 'moveTo' : 'lineTo'](
 							current = getPoint(j));
